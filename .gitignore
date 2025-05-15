@@ -14,3 +14,4 @@ my_venvs/
 # 5) Log files
 *.log
 lighteval-epfl-mnlp/
+.cache/
