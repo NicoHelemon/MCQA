@@ -1,0 +1,16 @@
+# 1) Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# 2) Virtual-envs
+my_venvs/
+
+# 3) Jupyter autosaves
+.ipynb_checkpoints/
+
+# 4) pytest cache
+.pytest_cache/
+
+# 5) Log files
+*.log
+lighteval-epfl-mnlp/

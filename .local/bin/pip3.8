@@ -1,0 +1,29 @@
+#!/bin/bash
+
+for p in $(echo '/opt/jlab-env/bin/pip3' '/usr/local/bin/pip3' '/usr/bin/pip3' '/usr/local/bin/pip' '/usr/bin/pip'); do
+        if [[ -r $p ]]; then
+                real_pip=$p
+                break
+        fi
+done
+
+if [ $(id -u) = 0 ]; then
+        eval $real_pip $@
+        exit $?
+else
+        case $1 in
+                list|--version|--help|-V|-h)
+                        eval $real_pip $@
+                        exit $?
+                        ;;
+                *)
+                        echo "Do not use $(basename $0) without activating a virtual environment first!" 1>&2
+                        echo "Otherwise, you might break your default Python environment and not be able to start Jupyter again." 1>&2
+                        echo "Check the Documentation on how to deal with virtual environments:" 1>&2
+			echo "🗀 / Documentation / 10_Envs_and_kernels.ipynb" 1>&2
+                        exit 1
+                ;;
+        esac
+fi
+
+# EOF

@@ -1,0 +1,13 @@
+{
+  "base_url": "/user/ch-epfl-290933/",
+  "hostname": "10.92.40.11",
+  "password": false,
+  "pid": 1,
+  "port": 60411,
+  "root_dir": "/home",
+  "secure": false,
+  "sock": "",
+  "token": "28ba652028b51e042ab158ab7454e69779cbd21609d3c978",
+  "url": "http://10.92.40.11:60411/user/ch-epfl-290933/",
+  "version": "2.14.2"
+}
