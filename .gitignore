@@ -4,6 +4,8 @@ __pycache__/
 
 # 2) Virtual-envs
 my_venvs/
+# 2.1) Virtual-envs
+.venv/
 
 # 3) Jupyter autosaves
 .ipynb_checkpoints/
@@ -19,3 +21,4 @@ lighteval-epfl-mnlp/
 .cache/
 my_venvs/
 .venv/src/lighteval/ 
+".venv/" 
