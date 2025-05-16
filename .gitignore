@@ -18,3 +18,4 @@ lighteval-epfl-mnlp/
 .cache/
 .cache/
 my_venvs/
+.venv/src/lighteval/ 
