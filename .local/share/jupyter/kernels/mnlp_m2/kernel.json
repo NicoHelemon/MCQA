@@ -1,0 +1,19 @@
+{
+ "argv": [
+  "/home/my_venvs/mnlp_m2/bin/python3",
+  "-Xfrozen_modules=off",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python (mnlp_m2)",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ },
+ "env": {
+  "CUDA_VISIBLE_DEVICES": "MIG-6ec7b762-bea3-5b5b-924c-13f5aca25adb",
+  "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+ }
+}

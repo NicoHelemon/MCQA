@@ -22,3 +22,13 @@ lighteval-epfl-mnlp/
 my_venvs/
 .venv/src/lighteval/ 
 ".venv/" 
+/trash/
+/models/tmp/
+/models/unsloth_compiled_cache/
+trash/
+models/tmp/
+models/unsloth_compiled_cache/
+/trash/
+/models/tmp/
+/models/unsloth_compiled_cache/
+/.triton/
