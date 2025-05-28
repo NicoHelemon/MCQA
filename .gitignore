@@ -5,3 +5,13 @@ models/unsloth_compiled_cache/
 # ignore notebook checkpoints & pycache under models
 models/**/.ipynb_checkpoints/
 models/**/__pycache__/
+
+# SSH private keys
+id_rsa
+id_ed25519
+# extra safety
+*.pem
+*.key
+
+# ignore SSH key directory entirely
+.ssh/
