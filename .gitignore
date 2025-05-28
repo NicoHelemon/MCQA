@@ -1,3 +1,7 @@
 # don’t track these model‐cache dirs
 models/tmp/
 models/unsloth_compiled_cache/
+
+# ignore notebook checkpoints & pycache under models
+models/**/.ipynb_checkpoints/
+models/**/__pycache__/
