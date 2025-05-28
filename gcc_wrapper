@@ -1,4 +1,0 @@
-#!/bin/bash
-REAL_GCC="/bin/gcc"
-GCC_LIBEXEC_DIR="/usr/libexec/gcc/x86_64-linux-gnu/13/"
-exec "$REAL_GCC" -B "$GCC_LIBEXEC_DIR" "$@"
