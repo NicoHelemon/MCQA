@@ -5,23 +5,23 @@ from transformers import (
     Trainer,
     TrainingArguments,
     default_data_collator,
+    AutoTokenizer,
+    AutoModelForCausalLM
 )
 from peft import PeftModel
 from huggingface_hub import HfApi
 
-from IPython.display import clear_output
-import matplotlib.pyplot as plt
 from transformers import TrainerCallback, TrainerState, TrainerControl
-
-from transformers import TrainerCallback
 import matplotlib.pyplot as plt
 from IPython.display import clear_output, display, update_display
 from transformers.trainer_callback import PrinterCallback
+import json
 
 class LivePlotCallback(TrainerCallback):
     def __init__(self):
         super().__init__()
         self.train_losses = []
+        self.train_steps  = []
         self.steps_per_epoch = None
         self.display_id      = "train_loss_plot"  # constant string id
         self._first_display  = True               # flag
@@ -39,16 +39,17 @@ class LivePlotCallback(TrainerCallback):
         if 'loss' in logs:
             loss = logs['loss']
             self.train_losses.append(loss)
+            self.train_steps.append(state.global_step)
 
         # Redraw plot
         fig, ax = plt.subplots(figsize=(8, 5))
 
         # Plot training loss
         if self.train_losses:
-            ax.plot(self.train_losses, label='Train Loss')
+            ax.plot(self.train_steps, self.train_losses, label='Train Loss')
             ax.set_ylabel('Loss')
             # Annotate latest loss value
-            latest_idx = len(self.train_losses) - 1
+            latest_idx = self.train_steps[-1] - 1
             latest_loss = self.train_losses[-1]
             ax.annotate(f'{latest_loss:.2f}', xy=(latest_idx, latest_loss),
                         xytext=(0, 5), textcoords='offset points', ha='center')
@@ -97,7 +98,7 @@ class QwenMCQA:
         commit_message: str = "new commit",
         hf_token: str = "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",
         hf_username: str = "NicoHelemon",
-        base_model: str = "Qwen/Qwen3-0.6B",
+        base_model: str = "Qwen/Qwen3-0.6B-Base",
         max_length: int = 512,
         batch_size: int = 256,
         learning_rate: float = 3e-5,
@@ -240,16 +241,86 @@ class QwenMCQA:
             self.model, self.tokenizer, self.train_ds, self.val_ds
         )
 
-    def train(self):
-        print("Starting training with LoRA adapters...")
-        self.trainer.train()
+    def _get_last_checkpoint(self, before_step = None):
+        """
+        Scan self.output_dir for folders named 'checkpoint-<step>' and
+        return the path to the one with the highest <step>.
+        If before_step is given, only consider checkpoints with step < before_step.
+        """
+        if not os.path.isdir(self.output_dir):
+            return None
 
-        # merge adapters and finalize
-        merged_model = self.model.merge_and_unload()
-        self.trainer.model = merged_model
-        self.trainer.tokenizer = self.tokenizer
+        ckpts = []
+        for d in os.listdir(self.output_dir):
+            full = os.path.join(self.output_dir, d)
+            if os.path.isdir(full) and d.startswith("checkpoint-"):
+                try:
+                    step = int(d.split("-", 1)[1])
+                except ValueError:
+                    continue
+                if before_step is None or step < before_step:
+                    ckpts.append((step, full))
+
+        if not ckpts:
+            return None
+
+        # return the path corresponding to the max step
+        return max(ckpts, key=lambda x: x[0])[1]
+
+    def _is_terminal_checkpoint(self, ckpt: str) -> bool:
+        """
+        Return True if ckpt/trainer_state.json says we've already
+        completed all epochs.
+        """
+        state_file = os.path.join(ckpt, "trainer_state.json")
+        if not os.path.isfile(state_file):
+            return False
+        with open(state_file, "r") as f:
+            st = json.load(f)
+        # when epoch ≥ num_train_epochs, this checkpoint is final
+        return st.get("epoch", 0) >= st.get("num_train_epochs", float("inf"))
+
+    def train(self, resume: bool = True, from_ckpt: int = 0):
+        print("Starting training with LoRA adapters...")
+        if resume:
+            # pass from_ckpt (0 means no threshold)
+            threshold = from_ckpt if from_ckpt > 0 else None
+            ckpt = self._get_last_checkpoint(before_step=threshold)
+        else:
+            ckpt = None
+
+        if ckpt:
+            print(f"  found checkpoint {ckpt}")
+            if self._is_terminal_checkpoint(ckpt):
+                print("✅  Last checkpoint is terminal. Skipping training.")
+            else:
+                print("⏩  Resuming training from that checkpoint …")
+                self.trainer.train(resume_from_checkpoint=ckpt)
+        else:
+            print("🔄  No checkpoint found, starting from scratch …")
+            self.trainer.train()
 
         self.trainer.save_model(self.output_dir)
         self.tokenizer.save_pretrained(self.output_dir)
         self.trainer.push_to_hub(commit_message=self.commit_message)
         print("Training completed")
+
+
+    def merge(self):
+        def count_parameters(model):
+            return sum(p.numel() for p in model.parameters())
+        
+        print("🔄 Merging LoRA adapters into base model…")
+        tokenizer = AutoTokenizer.from_pretrained(self.base_model, use_fast=True)
+        base_model = AutoModelForCausalLM.from_pretrained(self.base_model, torch_dtype="auto")
+        adapter = PeftModel.from_pretrained(base_model, self.hub_model_id, torch_dtype="auto")
+        merged = adapter.merge_and_unload()
+        assert count_parameters(adapter.base_model) == count_parameters(merged)
+        if hasattr(merged.config, "quantization_config"):
+            del merged.config.quantization_config
+        merged.save_pretrained(self.output_dir)
+        tokenizer.save_pretrained(self.output_dir)
+
+        self.trainer.push_to_hub(commit_message=f"✅ Merged model saved to '{self.output_dir}' and pushed to '{self.hub_model_id}'")
+        print(f"✅ Merged model saved to '{self.output_dir}' and pushed to '{self.hub_model_id}'")
+

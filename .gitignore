@@ -1,13 +1,12 @@
-# 1) Byte-compiled / cache
+# 1) Python bytecode and caches
 __pycache__/
 *.py[cod]
 
-# 2) Virtual-envs
+# 2) Virtual environments
 my_venvs/
-# 2.1) Virtual-envs
 .venv/
 
-# 3) Jupyter autosaves
+# 3) Jupyter checkpoints
 .ipynb_checkpoints/
 
 # 4) pytest cache
@@ -15,20 +14,43 @@ my_venvs/
 
 # 5) Log files
 *.log
-lighteval-epfl-mnlp/
-.cache/
-.cache/
-.cache/
-my_venvs/
-.venv/src/lighteval/ 
-".venv/" 
-/trash/
-/models/tmp/
-/models/unsloth_compiled_cache/
-trash/
+
+# 6) Model build/cache artifacts
 models/tmp/
 models/unsloth_compiled_cache/
-/trash/
-/models/tmp/
-/models/unsloth_compiled_cache/
-/.triton/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 7) light-eval EPFL MNLP (nested Git repo)
+#
+#    1) ignore absolutely everything under that folder…
+/lighteval-epfl-mnlp/**
+
+#    2) …but don’t ignore the folder itself (so we can whitelist bits)
+!/lighteval-epfl-mnlp/
+
+#    3) explicitly keep the nested Git metadata out of your commits
+/lighteval-epfl-mnlp/.git/
+
+#    4) now re-include the subdirs & file you actually want
+## community tasks
+!/lighteval-epfl-mnlp/community_tasks/
+!/lighteval-epfl-mnlp/community_tasks/**
+
+## model configs
+!/lighteval-epfl-mnlp/model_configs/
+!/lighteval-epfl-mnlp/model_configs/**
+
+## outputs
+!/lighteval-epfl-mnlp/outputs/
+!/lighteval-epfl-mnlp/outputs/**
+
+## eval script
+!/lighteval-epfl-mnlp/eval.sh
+# ─────────────────────────────────────────────────────────────────────────────
+
+# 8) Triton cache
+.triton/
+
+# 9) Miscellaneous
+.cache/
+trash/

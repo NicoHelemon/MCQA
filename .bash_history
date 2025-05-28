@@ -1,162 +1,3 @@
-PS1='PROMPT_PSPKKZHCDTSV\[\]>' PS2='PROMPT_PSPKKZHCDTSV\[\]+' PROMPT_COMMAND=''
-export PAGER=cat
-bind 'set enable-bracketed-paste off' >/dev/null 2>&1 || true
-display () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved image data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayHTML () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved html data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayJS () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved javascript data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-export NOTEBOOK_BASH_KERNEL_CAPABILITIES="image,html,javascript"
-PS1='PROMPT_TPKHRUGGVLPG\[\]>' PS2='PROMPT_TPKHRUGGVLPG\[\]+' PROMPT_COMMAND=''
-export PAGER=cat
-bind 'set enable-bracketed-paste off' >/dev/null 2>&1 || true
-display () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved image data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayHTML () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved html data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayJS () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved javascript data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-export NOTEBOOK_BASH_KERNEL_CAPABILITIES="image,html,javascript"
-PS1='PROMPT_EBZQOGHHNTJQ\[\]>' PS2='PROMPT_EBZQOGHHNTJQ\[\]+' PROMPT_COMMAND=''
-export PAGER=cat
-bind 'set enable-bracketed-paste off' >/dev/null 2>&1 || true
-display () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved image data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayHTML () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved html data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayJS () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved javascript data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-export NOTEBOOK_BASH_KERNEL_CAPABILITIES="image,html,javascript"
-PS1='PROMPT_MBQIVQPPNKUS\[\]>' PS2='PROMPT_MBQIVQPPNKUS\[\]+' PROMPT_COMMAND=''
-export PAGER=cat
-bind 'set enable-bracketed-paste off' >/dev/null 2>&1 || true
-display () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved image data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayHTML () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved html data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayJS () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved javascript data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-export NOTEBOOK_BASH_KERNEL_CAPABILITIES="image,html,javascript"
-PS1='PROMPT_NJKYAFWVLMVI\[\]>' PS2='PROMPT_NJKYAFWVLMVI\[\]+' PROMPT_COMMAND=''
-export PAGER=cat
-bind 'set enable-bracketed-paste off' >/dev/null 2>&1 || true
-display () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved image data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayHTML () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved html data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-displayJS () {     display_id="$1"; shift;     TMPFILE=$(mktemp ${TMPDIR-/tmp}/bash_kernel.XXXXXXXXXX);     cat > $TMPFILE;     prefix="bash_kernel: saved javascript data to: ";     if [[ "${display_id}" != "" ]]; then         echo "${prefix}(${display_id}) $TMPFILE" >&2;     else         echo "${prefix}$TMPFILE" >&2;     fi; }
-export NOTEBOOK_BASH_KERNEL_CAPABILITIES="image,html,javascript"
-git pull
-ls ~/.ssh/id_ed25519.pub
-cat ~/.ssh/id_rsa.pub
-ssh -T git@github.com
-git pull
-git branch --set-upstream-to=origin/main main
-git pull
-cd lighteval-epfl-mnlp/
-bash eval.sh 
-my_venvs_activate mnlp_m2
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-my_venvs_activate mnlp_m2
-bash eval.sh 
-cd lighteval-epfl-mnlp/
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-bash eval.sh 
-my_venvs_activate mnlp_m2
-pip install --upgrade transformers
-nvidia-smi
-my_venvs_activate mnlp_m2
-cd lighteval-epfl-mnlp/
-python hf.py
-cd .
-cd ..
-python hf.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-python model_test.py
-pip install --upgrade accelerate transformers
-python model_test.py
-accelerate launch model_test.py
-accelerate config
-accelerate launch model_test.py
-accelerate launch model_test.py
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-python small_model_test.py 
-type my_venvs_activate
-pip install ipykernel
-python -m ipykernel install     --user     --name mnlp_m2     --display-name "Python (mnlp_m2)"
-pip install pynvml
-nvidia-smi
-git add .
-git add small_model_test.ipynb
-git commit -m "added small_model_test.ipynb"
-git push
-huggingface-cli login
-huggingface-cli whoami
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-ps aux | grep -E 'jupyter|ipykernel'
-kill 1
-ps aux | grep -E 'jupyter|ipykernel'
-pkill -f jupyter-labhub
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nvidia-smi
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nano ~/.local/share/jupyter/kernels/mnlp_m2/kernel.json
-nvcc --version
-pip uninstall bitsandbytes
-my_venvs_activate mnlp_m2
-pip uninstall bitsandbytes
-pip install --upgrade --ignore-installed bitsandbytes-cuda121
-pip install --upgrade bitsandbytes
-cat > ~/gcc_wrapper << 'EOF'
-#!/bin/bash
-# real gcc + -B so it finds the libexec dir for your distro
-REAL_GCC="/bin/gcc"
-GCC_LIBEXEC_DIR="/usr/libexec/gcc/x86_64-linux-gnu/13/"
-
-exec "$REAL_GCC" -B "$GCC_LIBEXEC_DIR" "$@"
-EOF
-
-chmod +x ~/gcc_wrapper
-unset  GCC_EXEC_PREFIX
-export CC="$HOME/gcc_wrapper"
-ls -l ~/gcc_wrapper
-~/gcc_wrapper --version
-python3 - <<EOF
-import os
-print("CC in Python:", os.environ.get("CC"))
-EOF
-
-pip uninstall bitsandbytes
-rm -rf /home/my_venvs/mnlp_m2/lib/python3.12/site-packages/~itsandbytes
-rm -rf /home/my_venvs/mnlp_m2/lib/python3.12/site-packages/~itsandbytes
-pip install --force-reinstall --no-cache-dir bitsandbytes
-pip install --upgrade --force-reinstall --ignore-installed bitsandbytes
-pip uninstall -y bitsandbytes
-rm -rf /home/my_venvs/mnlp_m2/lib/python3.12/site-packages/~itsandbytes
-pip install bitsandbytes==0.44.0
-echo $CC
-pip install 'triton>=3.0,<4.0'
-pip uninstall -y bitsandbytes
 rm -rf /home/my_venvs/mnlp_m2/lib/python3.12/site-packages/~itsandbytes
 pip install --no-cache-dir bitsandbytes==0.44.0
 nano /home/my_venvs/mnlp_m2/pyvenv.cfg
@@ -498,3 +339,162 @@ python model_LoRA_unsloth.py
 python model_LoRA_unsloth.py 
 python model_LoRA_unsloth.py 
 python model_LoRA_unsloth.py 
+python model_LoRA_unsloth.py 
+my_venvs_activate mnlp_m2c
+python model_LoRA_unsloth.py 
+python model_LoRA_unsloth.py 
+python model_LoRA_unsloth.py 
+python model_LoRA_unsloth.py 
+python merge.py 
+python merge.py 
+python merge.py 
+python merge.py 
+python merge.py 
+my_venvs_activate mnlp_m2
+pip install transformers==4.51.3
+deactivate
+my_venvs_activate mnlp_m2c
+pip install transformers==4.51.3
+my_venvs_activate mnlp_m2c
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+my_venvs_activate mnlp_m2c
+bash eval.sh
+bash eval.sh
+bash eval.sh
+pip install -e .[quantization]
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+my_venvs_activate mnlp_m2c
+pip install ipykernel
+python -m ipykernel install     --user     --name mnlp_m2c     --display-name "Python (mnlp_m2c)"
+mkdir -p ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+ls -ld ~/.ssh
+ls -l  ~/.ssh/authorized_keys
+cat  ~/.ssh/authorized_keys
+echo $HOME
+sed -i 's/\r$//' $HOME/.ssh/authorized_keys
+my_venvs_activate mnlp_m2c
+pip install tensorboard
+which tensorboard
+tensorboard --version
+jupyter lab --version
+pip install jupyterlab_tensorboard
+pip install jupyterlab-tensorboard-pro
+jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+my_venvs_activate mnlp_m2c
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+clear
+bash eval.sh
+clear
+bash eval.sh
+bash eval.sh
+clear
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
+ls -a
+cat .gitignore
+cat <<EOF >> .gitignore
+/trash/
+/models/tmp/
+/models/unsloth_compiled_cache/
+EOF
+
+cat .gitignore
+git rm -r --cached trash
+git rm -r --cached models/tmp
+git rm -r --cached models/unsloth_compiled_cache
+git add .
+cat <<EOF >> .gitignore
+trash/
+models/tmp/
+models/unsloth_compiled_cache/
+EOF
+
+cat .gitignore
+git rm -r --cached models/unsloth_compiled_cache
+git add .
+git commit -m "models"
+git push
+cat <<EOF >> .gitignore
+/trash/
+/models/tmp/
+/models/unsloth_compiled_cache/
+/.triton/
+EOF
+
+git reset --mixed HEAD~1
+git rm -r --cached .triton
+grep '\.triton' .gitignore || echo '/.triton/' >> .gitignore
+cat .gitignore
+git status --ignored
+git add .gitignore
+git add .
+git commit -m "Recommit without the Triton binaries"
+git push origin main --force
+my_venvs_activate mnlp_eval2
+bash eval.sh
+clear
+bash eval.sh
+my_venvs_activate mnlp_eval2
+bash eval.sh
+bash eval.sh
+bash eval.sh
+bash eval.sh
