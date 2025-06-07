@@ -1,0 +1,333 @@
+{
+  "config_general": {
+    "lighteval_sha": "8113a236038445db7247fc144947cc507c092861",
+    "num_fewshot_seeds": 1,
+    "override_batch_size": -1,
+    "max_samples": null,
+    "job_id": 0,
+    "start_time": 1050651.474444887,
+    "end_time": 1051524.029480928,
+    "total_evaluation_time_secondes": "872.5550360411871",
+    "model_name": "arnaultsta/MNLP_M2_mcqa_model",
+    "model_sha": "22b14a22bd5e164404e954b5ba1061b5164b7fa4",
+    "model_dtype": "torch.float16",
+    "model_size": "1.11 GB",
+    "generation_parameters": {
+      "early_stopping": null,
+      "repetition_penalty": null,
+      "frequency_penalty": null,
+      "length_penalty": null,
+      "presence_penalty": null,
+      "max_new_tokens": null,
+      "min_new_tokens": null,
+      "seed": null,
+      "stop_tokens": null,
+      "temperature": 0.0,
+      "top_k": null,
+      "min_p": null,
+      "top_p": null,
+      "truncate_prompt": null,
+      "response_format": null
+    }
+  },
+  "results": {
+    "lighteval|agieval:aqua-rat|0": {
+      "acc": 0.32677165354330706,
+      "acc_stderr": 0.029487851051239324,
+      "acc_norm": 0.31496062992125984,
+      "acc_norm_stderr": 0.029202877079608624
+    },
+    "lighteval|openbookqa|0": {
+      "acc": 0.25,
+      "acc_stderr": 0.019384310743640384,
+      "acc_norm": 0.366,
+      "acc_norm_stderr": 0.021564276850201614
+    },
+    "lighteval|race:high|0": {
+      "acc": 0.3416267942583732,
+      "acc_stderr": 0.014677827770761072
+    },
+    "lighteval|sciq|0": {
+      "acc": 0.941,
+      "acc_stderr": 0.007454835650406723,
+      "acc_norm": 0.929,
+      "acc_norm_stderr": 0.008125578442487916
+    },
+    "all": {
+      "acc": 0.46484961195042007,
+      "acc_stderr": 0.017751206304011877,
+      "acc_norm": 0.5366535433070866,
+      "acc_norm_stderr": 0.01963091079076605
+    }
+  },
+  "versions": {
+    "lighteval|agieval:aqua-rat|0": 0,
+    "lighteval|openbookqa|0": 0,
+    "lighteval|race:high|0": 0,
+    "lighteval|sciq|0": 0
+  },
+  "config_tasks": {
+    "lighteval|agieval:aqua-rat": {
+      "name": "agieval:aqua-rat",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-aqua-rat",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "limited_num_samples": -1,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 254,
+      "effective_num_docs": 254,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|openbookqa": {
+      "name": "openbookqa",
+      "prompt_function": "openbookqa",
+      "hf_repo": "openbookqa",
+      "hf_subset": "main",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train",
+        "test",
+        "validation"
+      ],
+      "trust_dataset": true,
+      "limited_num_samples": -1,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 500,
+      "effective_num_docs": 500,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|race:high": {
+      "name": "race:high",
+      "prompt_function": "race",
+      "hf_repo": "EleutherAI/race",
+      "hf_subset": "high",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "limited_num_samples": -1,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval",
+        "race"
+      ],
+      "original_num_docs": 1045,
+      "effective_num_docs": 1045,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|sciq": {
+      "name": "sciq",
+      "prompt_function": "sciq",
+      "hf_repo": "sciq",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train",
+        "validation",
+        "test"
+      ],
+      "trust_dataset": true,
+      "limited_num_samples": -1,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1000,
+      "effective_num_docs": 1000,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    }
+  },
+  "summary_tasks": {
+    "lighteval|agieval:aqua-rat|0": {
+      "hashes": {
+        "hash_examples": "f09607f69e5b7525",
+        "hash_full_prompts": "f09607f69e5b7525",
+        "hash_input_tokens": "13d4b88eed20dfc3",
+        "hash_cont_tokens": "16353f89c3e9cd11"
+      },
+      "truncated": 0,
+      "non_truncated": 254,
+      "padded": 1265,
+      "non_padded": 5,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|openbookqa|0": {
+      "hashes": {
+        "hash_examples": "7bc6716005dd3312",
+        "hash_full_prompts": "7bc6716005dd3312",
+        "hash_input_tokens": "3d54ef3278d3810d",
+        "hash_cont_tokens": "d2a17ff3a5435ebf"
+      },
+      "truncated": 0,
+      "non_truncated": 500,
+      "padded": 1992,
+      "non_padded": 8,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|race:high|0": {
+      "hashes": {
+        "hash_examples": "4b6e968df7706731",
+        "hash_full_prompts": "4b6e968df7706731",
+        "hash_input_tokens": "7a5dba172a91e780",
+        "hash_cont_tokens": "ff5425bdc5598e61"
+      },
+      "truncated": 0,
+      "non_truncated": 1045,
+      "padded": 4167,
+      "non_padded": 13,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|sciq|0": {
+      "hashes": {
+        "hash_examples": "5370cc1f4ab73504",
+        "hash_full_prompts": "5370cc1f4ab73504",
+        "hash_input_tokens": "36c8b5020674fdba",
+        "hash_cont_tokens": "5b2831654fb78390"
+      },
+      "truncated": 0,
+      "non_truncated": 1000,
+      "padded": 3968,
+      "non_padded": 32,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    }
+  },
+  "summary_general": {
+    "hashes": {
+      "hash_examples": "e79e636b97ef8bb1",
+      "hash_full_prompts": "e79e636b97ef8bb1",
+      "hash_input_tokens": "0290ea9e86b011db",
+      "hash_cont_tokens": "358af6a781b5e937"
+    },
+    "truncated": 0,
+    "non_truncated": 2799,
+    "padded": 11392,
+    "non_padded": 58,
+    "num_truncated_few_shots": 0
+  }
+}

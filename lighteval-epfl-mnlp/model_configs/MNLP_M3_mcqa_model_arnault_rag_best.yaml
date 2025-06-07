@@ -1,0 +1,22 @@
+model:
+  base_params:
+    # Change this to your own model name on huggingface hub
+    # (Optional) If you want to use a chat template, set "use_chat_template=true" after revision.
+    # (Optional) However, you must ensure that the chat template is saved in the model checkpoint.
+    model_args: "pretrained=arnaultsta/MNLP_M3__RAG_wiki_rest_300,revision=main"
+    dtype: "float16"
+    compile: false
+  rag_params:
+    embedding_model: "arnaultsta/MNLP_M2_document_encoder" # Change this to your own embedding model name on huggingface hub
+    docs_name_or_path: "arnaultsta/MNLP_M3_wikipedia_camel_chunked_300_rest" # Change this to your own document name or path on huggingface hub
+    similarity_fn: cosine # Select the similarity function to use, options are: cosine, dot_product, max_inner_product, jaccard
+    top_k: 3 # Choose the number of documents to retrieve
+    num_chunks: 100000 # This is the limit we set for the number of chunks to retrieve from the document where each chunk is 512 tokens
+
+  # Ignore this section, do not modify!
+  merged_weights:
+    delta_weights: false
+    adapter_weights: false
+    base_model: null
+  generation:
+    temperature: 0.0
