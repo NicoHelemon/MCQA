@@ -2,7 +2,7 @@
 
 ### 1. Create a fresh environment and install dependencies
 
-# install everything you need for training
+### install everything you need for training
 pip install -r train_requirements.txt
 ```
 
