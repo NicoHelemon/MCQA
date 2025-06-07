@@ -58,7 +58,12 @@ qwenMCQA.merge()
 
 The `merge()` step will:
 
+1. find every `checkpoint-*` folder in your `output_dir`  
+2. load that adapter checkpoint and merge its LoRA weights into the base model  
+3. save the merged model & tokenizer under `merged_e{epoch}`  
+4. push each merged model to the Hugging Face Hub as `your-hub-model-name_e{epoch}`  
 
+That way you end up with one Hub repo per epoch, all ready to go.  
 
 ## Evaluation
 
