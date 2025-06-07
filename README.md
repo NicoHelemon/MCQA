@@ -1,6 +1,6 @@
 ## Training
 
-### 1. Create a fresh environment and install dependencies
+# 1. Create a fresh environment and install dependencies
 
 ### install everything you need for training
 ```
