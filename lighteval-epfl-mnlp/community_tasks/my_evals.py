@@ -143,7 +143,7 @@ task_MNLP_M3_mcqa_dataset = LightevalTaskConfig(
 
 task_mmlu_STEM_mmlu_harness = LightevalTaskConfig(
     name="mmlu:stem",
-    prompt_function=mmlu_harness,
+    prompt_function=mmlu_harness_legacy,
     suite=["community"],
     hf_repo="NicoHelemon/mmlu_STEM",
     hf_subset="",  # using the full dataset
