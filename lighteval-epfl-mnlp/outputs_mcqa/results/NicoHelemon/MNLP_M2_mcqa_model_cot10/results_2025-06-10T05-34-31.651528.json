@@ -1,0 +1,130 @@
+{
+  "config_general": {
+    "lighteval_sha": "564ffe324ee8de9c0de34e232380a9307c5e5303",
+    "num_fewshot_seeds": 1,
+    "override_batch_size": -1,
+    "max_samples": null,
+    "job_id": 0,
+    "start_time": 1605128.266136917,
+    "end_time": 1605527.690836861,
+    "total_evaluation_time_secondes": "399.42469994397834",
+    "model_name": "NicoHelemon/MNLP_M2_mcqa_model_cot10",
+    "model_sha": "54b708eccb3c117a4123597a8bed74d07061a6b6",
+    "model_dtype": "torch.float16",
+    "model_size": "1.11 GB",
+    "generation_parameters": {
+      "early_stopping": null,
+      "repetition_penalty": null,
+      "frequency_penalty": null,
+      "length_penalty": null,
+      "presence_penalty": null,
+      "max_new_tokens": null,
+      "min_new_tokens": null,
+      "seed": null,
+      "stop_tokens": null,
+      "temperature": 0.0,
+      "top_k": null,
+      "min_p": null,
+      "top_p": null,
+      "truncate_prompt": null,
+      "response_format": null
+    }
+  },
+  "results": {
+    "community|mmlu:stem|0": {
+      "acc": 0.5047245909195667,
+      "acc_stderr": 0.007591119727579659,
+      "acc_norm": 0.5047245909195667,
+      "acc_norm_stderr": 0.007591119727579659
+    },
+    "all": {
+      "acc": 0.5047245909195667,
+      "acc_stderr": 0.007591119727579659,
+      "acc_norm": 0.5047245909195667,
+      "acc_norm_stderr": 0.007591119727579659
+    }
+  },
+  "versions": {
+    "community|mmlu:stem|0": 0
+  },
+  "config_tasks": {
+    "community|mmlu:stem": {
+      "name": "mmlu:stem",
+      "prompt_function": "mmlu_harness_legacy",
+      "hf_repo": "NicoHelemon/mmlu_STEM",
+      "hf_subset": "",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test",
+        "validation",
+        "dev"
+      ],
+      "trust_dataset": true,
+      "limited_num_samples": 0,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "community"
+      ],
+      "original_num_docs": 4339,
+      "effective_num_docs": 4339,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    }
+  },
+  "summary_tasks": {
+    "community|mmlu:stem|0": {
+      "hashes": {
+        "hash_examples": "03025379b50a3d1f",
+        "hash_full_prompts": "03025379b50a3d1f",
+        "hash_input_tokens": "8e0d94667d356c1d",
+        "hash_cont_tokens": "ded0d997624e04d0"
+      },
+      "truncated": 0,
+      "non_truncated": 4339,
+      "padded": 16974,
+      "non_padded": 382,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    }
+  },
+  "summary_general": {
+    "hashes": {
+      "hash_examples": "aa8062fe5e9afc35",
+      "hash_full_prompts": "aa8062fe5e9afc35",
+      "hash_input_tokens": "ae50cd09049339fe",
+      "hash_cont_tokens": "05e2952850795ea9"
+    },
+    "truncated": 0,
+    "non_truncated": 4339,
+    "padded": 16974,
+    "non_padded": 382,
+    "num_truncated_few_shots": 0
+  }
+}
