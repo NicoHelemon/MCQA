@@ -118,8 +118,8 @@ class QwenMCQA:
 		lora_alpha: int = 256,
 		data_subset: int = 0,
 		commit_message: str = "new commit",
-		hf_token: str = "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",
-		hf_username: str = "NicoHelemon",
+		hf_token: str | None = None,
+		hf_username: str | None = None,
 		base_model: str = "Qwen/Qwen3-0.6B-Base",
 		max_length: int = 512,
 		batch_size: int = 256,
@@ -137,11 +137,16 @@ class QwenMCQA:
 		self.model_name = my_model_suffix
 
 		# Environment & identifiers
-		os.environ["HF_TOKEN"] = hf_token
 		self.hf_token = hf_token
 		self.hf_username = hf_username
-		self.repo_ds = f"{hf_username}/MNLP_M3_mcqa_dataset"
-		self.hub_model_id = f"{hf_username}/{my_model_name}{my_model_suffix}"
+		self.pushing = bool(hf_token and hf_username)
+		if self.pushing:
+			print(f"The model will be pushed to Hugging Face Hub as '{hf_username}/{my_model_name}{my_model_suffix}'...")
+			os.environ["HF_TOKEN"] = hf_token
+		else:
+			print("The model will be saved locally only and not be pushed to Hugging Face Hub (no token or username provided).")
+		self.repo_ds = f"NicoHelemon/MNLP_M3_mcqa_dataset"
+		self.hub_model_id = f"{hf_username}/{my_model_name}{my_model_suffix}" if self.pushing else None
 		self.base_model = base_model
 		self.output_dir = f"tmp/mcqa_model{my_model_suffix}"
 		self.logging_dir = f"{self.output_dir}/logs"
@@ -183,8 +188,7 @@ class QwenMCQA:
 	def _setup_model_tokenizer(self):
 		model, tokenizer = FastModel.from_pretrained(
 			model_name=self.base_model,
-			max_seq_length=self.max_length,
-			token=self.hf_token,
+			max_seq_length=self.max_length
 		)
 		model.gradient_checkpointing_enable()
 
@@ -226,7 +230,7 @@ class QwenMCQA:
 			num_train_epochs=self.num_epochs,
 			logging_steps=self.logging_steps,
 			save_strategy="epoch",
-			push_to_hub=True,
+			push_to_hub=self.pushing,
 			hub_model_id=self.hub_model_id,
 			hub_token=self.hf_token,
 			gradient_accumulation_steps=self.gradient_accumulation_steps,
@@ -268,7 +272,9 @@ class QwenMCQA:
 		self.trainer.train()
 		self.trainer.save_model(self.output_dir)
 		self.tokenizer.save_pretrained(self.output_dir)
-		self.trainer.push_to_hub(commit_message=self.commit_message)
+		if self.pushing:
+			self.trainer.push_to_hub(commit_message=self.commit_message)
+			print("Model pushed to the Hub")
 		print("Training completed")
 
 
@@ -330,19 +336,21 @@ class QwenMCQA:
 			merged.save_pretrained(merged_dir)
 			tokenizer.save_pretrained(merged_dir)
 
-			# push to its own hub repo
-			suffix = f"_e{epoch}"
-			repo_id = f"{self.hub_model_id}{suffix}"
-			print(f"🚀 Pushing merged epoch {epoch} → {repo_id}")
-			merged.push_to_hub(
-				repo_id=repo_id,
-				use_auth_token=self.hf_token,
-				commit_message=f"✅ merged epoch {epoch}"
-			)
-			tokenizer.push_to_hub(
-				repo_id=repo_id,
-				use_auth_token=self.hf_token,
-				commit_message=f"✅ tokenizer for epoch {epoch}"
-			)
+			if self.pushing:
+				# push to its own hub repo
+				suffix = f"_e{epoch}"
+				repo_id = f"{self.hub_model_id}{suffix}"
+				print(f"🚀 Pushing merged epoch {epoch} → {repo_id}")
+				merged.push_to_hub(
+					repo_id=repo_id,
+					use_auth_token=self.hf_token,
+					commit_message=f"✅ merged epoch {epoch}"
+				)
+				tokenizer.push_to_hub(
+					repo_id=repo_id,
+					use_auth_token=self.hf_token,
+					commit_message=f"✅ tokenizer for epoch {epoch}"
+				)
 
-		print("\n✅ All epoch checkpoints merged and pushed.")
+		str_push_save = "saved, and pushed." if self.pushing else " and saved."
+		print("\n✅ All epoch checkpoints merged" + str_push_save)

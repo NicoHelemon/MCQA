@@ -34,26 +34,27 @@ def parse_args():
         "--my_model_suffix",
         type=str,
         default="",
-        help="Suffix to append to the Hugging Face model repo name"
+        help="Suffix to append to the model name (applies to both local save path and Hugging Face repo name)"
     )
     parser.add_argument(
         "--my_model_name",
         type=str,
         default="",
-        help="Explicit Hugging Face model repo name; independent from suffix"
+        help="Explicit Hugging Face model repo name (only relevant when pushing to the Hugging Face Hub)"
     )
     parser.add_argument(
         "--hf_token",
         type=str,
-        required=True,
-        help="Hugging Face access token"
+        default=None,
+        help="(Optional) Hugging Face access token; if omitted, will not push to Hub"
     )
     parser.add_argument(
         "--hf_username",
         type=str,
-        required=True,
-        help="Hugging Face username"
+        default=None,
+        help="(Optional) Hugging Face username; if omitted, will not push to Hub"
     )
+
 
     # Training hyperparameters
     parser.add_argument(
